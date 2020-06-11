@@ -53,14 +53,14 @@ let falseArray2 = [
     "i","t","e","m","s."];
 function is31Flavors(flavorArray){
     if (flavorArray.length === 31 ){
-       console.log(true);
+       return true;
     } else {
-       console.log(false);
+       return false;
     }
 }
-is31Flavors(falseArray1);
-is31Flavors(falseArray2);
-is31Flavors(originalFlavors);
+console.log(is31Flavors(falseArray1));
+console.log(is31Flavors(falseArray2));
+console.log(is31Flavors(originalFlavors));
 /* Task 2: Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
 
 Your function should accept:
@@ -74,9 +74,9 @@ For example addFlavor("Rainbow Sherbert", originalFlavors) should return ["Rainb
 
 function addFlavor(arr, flave){
     arr.unshift(flave);
-    console.log(arr);
+    return arr;
 }
-addFlavor(originalFlavors, "Rainbow Sherbert");
+console.log(addFlavor(originalFlavors, "Rainbow Sherbert"));
 
 /* Task 3: Houston, we have a problem! There are now 32 flavors in the array! Your task is to remove an item from the end of the array. 
 
@@ -90,9 +90,9 @@ For example removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", 
 
 function removeLastFlavor(arr){
     arr.pop();
-    console.log(arr);
+    return arr;
 }
-removeLastFlavor(originalFlavors);
+console.log(removeLastFlavor(originalFlavors));
 /* Task 4: Write a function that returns a flavor at a given index in the array.
 
 Your function should accept:
@@ -103,9 +103,9 @@ Your function should accept:
 For example, getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully. */
 
 function getFlavorByIndex(arr, index){
-    console.log(arr[index]);
+    return arr[index];
 }
-getFlavorByIndex(originalFlavors, 2);
+console.log(getFlavorByIndex(originalFlavors, 2));
 /* Task 5: As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, 
 as opposed to just arbitrarily removing the first or last flavor. Your task is to get an index by flavor name, and remove that flavor from the array. 
 
@@ -126,9 +126,9 @@ function removeFlavorByName(arr, string){
             arr.splice(i, 1);
         }
     }
-    console.log(arr);
+    return arr;
 }
-removeFlavorByName(originalFlavors, "Vanilla");
+console.log(removeFlavorByName(originalFlavors, "Vanilla"));
 
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy 
 that makes a copy of the array. 
@@ -170,10 +170,10 @@ function filterByWord(arr, string){
             newArr.push(slicer[0]);
         }
     }
-    console.log(newArr);
+    return newArr;
 
 }
-filterByWord(originalFlavors, "Chocolate");
+console.log(filterByWord(originalFlavors, "Chocolate"));
 
 
 /* 🧁🍦🍨 STRETCH 🍨🍦🍫*/ 
@@ -189,17 +189,16 @@ and should return the average number of words per item in the array.
 For example, getAverageWordLength(originalFlavors) should return a number between 0 and 3. */
 
 function getAverageWordLength(arr){
-    let conatiner = [];
     let average = 0;
 
     for (let i = 0; i < arr.length; i++) {
         average = average + arr[i].split(" ").length;
     }
 
-    average = Math.round(average/conatiner.length);
-    return average;
+    average = Math.round(average/arr.length);
+    console.log(average);
 }
-console.log(getAverageWordLength(originalFlavors));
+getAverageWordLength(originalFlavors);
 
 /* STRETCH 2: Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors.
 
@@ -304,6 +303,6 @@ function getRandomFlavors(arr1, arr2, arr3, arr4){
                 break;
         }
     }
-    console.log(randoray);
+    return randoray;
 }
-getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors);
+console.log(getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors));
